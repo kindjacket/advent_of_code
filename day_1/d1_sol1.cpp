@@ -1,8 +1,7 @@
 #include <cmath>
 #include <fstream>
-#include <zconf.h>
 
-int fuel_required(int a) {
+static int fuel_required(int a) {
     int r;
     r = (int) floor(a / 3) - 2;
     return r;

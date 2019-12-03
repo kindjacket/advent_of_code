@@ -8,6 +8,7 @@ include_directories(day_1)
 
 add_executable(advent_of_code_2019
         day_1/d1_sol.jl
-        day_1/d1_sol1.cpp
+#        day_1/d1_sol1.cpp
+        day_1/d1_sol2.cpp
         day_1/module_mass.txt
         README.md)
