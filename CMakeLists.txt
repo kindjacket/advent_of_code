@@ -1,0 +1,13 @@
+cmake_minimum_required(VERSION 3.15)
+project(advent_of_code_2019)
+
+set(CMAKE_CXX_STANDARD 14)
+
+include_directories(.)
+include_directories(day_1)
+
+add_executable(advent_of_code_2019
+        day_1/d1_sol.jl
+        day_1/d1_sol1.cpp
+        day_1/module_mass.txt
+        README.md)
