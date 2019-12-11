@@ -39,3 +39,9 @@ cmake-build-debug/
 # jet brains
 *.idea/
 
+# conan
+graph_info.json
+conanbuildinfo.txt
+conaninfo.txt
+conanbuildinfo.cmake
+conan.lock
