@@ -1,26 +1,23 @@
-
-// rules
-// stop at 99
-// seperate into chunks of 4
-
-#include <iostream>
 #include <vector>
 #include <set>
-#include "spdlog/spdlog.h"
 
-static bool opcode_validator(int opcode) {
+static void opcode_validator(int opcode) {
     std::set<int> opcodes = {1, 2, 99};
     // will return true if in the set, false if not
     const bool valid = opcodes.find(opcode) != opcodes.end();
     if (!valid) {
-        spdlog::warn("Easy padding in numbers like {:08d}", 12);
+        printf("bad data");
     }
 }
 
-static bool opcode_operator(int opcode_index, int opcode, std::vector<int> vec) {
+// we &vec if we want to mutate the vector https://www.geeksforgeeks.org/passing-vector-function-cpp/
+static int opcode_operator(int opcode_index, std::vector<int> &vec) {
+    int opcode = vec.at(opcode_index);
+    opcode_validator(opcode);
     int position_1 = vec.at(opcode_index + 1);
     int position_2 = vec.at(opcode_index + 2);
     int storage_position = vec.at(opcode_index + 3);
+    int next_index = opcode_index + 4;
     if (opcode == 1) {
         //Opcode 1 adds together numbers read from two positions and stores the result in a third position.
         //The three integers immediately after the opcode tell you these three positions - the first two indicate
@@ -36,9 +33,8 @@ static bool opcode_operator(int opcode_index, int opcode, std::vector<int> vec) 
 //        of adding them. Again, the three integers after the opcode indicate where the inputs
 //        and outputs are, not their values.
         vec.at(storage_position) = vec.at(position_1) * vec.at(position_2);
-    } else if (opcode == 99) {
-
     }
+    return next_index;
 }
 
 
@@ -53,13 +49,14 @@ int main() {
     // replace position 1 with the value 12 and replace position 2 with the value 2.
     vec.at(1) = 12;
     vec.at(2) = 2;
-    for (std::vector<int>::size_type i = 0; i != vec.size(); i++) {
-        if (vec[i] == 99) {
-            break;
-        }
-        std::cout << vec[i];
+    int current_opcode_index = 0;
+    int current_opcode = vec.at(current_opcode_index);
+    while (current_opcode != 99) {
+        current_opcode_index = opcode_operator(current_opcode_index, vec);
+        current_opcode = vec.at(current_opcode_index);
     }
-
+    int output = vec.at(0);
+    printf("%i", output);
 }
 
 
