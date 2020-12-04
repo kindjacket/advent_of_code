@@ -5,9 +5,10 @@ description = "advent of code 2020"
 authors = ["kindjacket <kindjacket@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.8"
 requests = "^2.25.0"
 python-dotenv = "^0.15.0"
+numpy = "^1.19.4"
 
 [tool.poetry.dev-dependencies]
 
