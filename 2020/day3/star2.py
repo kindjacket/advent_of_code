@@ -1,6 +1,6 @@
 from typing import List
 
-from utils import get_input
+from utils import get_input_for_day
 from loguru import logger
 import numpy as np
 
@@ -20,7 +20,7 @@ def try_slope(input_data: List[List], step: np.array):
 
 
 if __name__ == "__main__":
-    input_data = [list(i) for i in get_input(DAY)]
+    input_data = [list(i) for i in get_input_for_day(DAY)]
     start = np.array([0, 0])
     input_width = len(input_data[0])
     step_options = [

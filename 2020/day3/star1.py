@@ -1,10 +1,10 @@
-from utils import get_input
+from utils import get_input_for_day
 import numpy as np
 
 
 DAY = 3
 
-input_data = [list(i) for i in get_input(DAY)]
+input_data = [list(i) for i in get_input_for_day(DAY)]
 
 start = np.array([0, 0])
 input_width = len(input_data[0])

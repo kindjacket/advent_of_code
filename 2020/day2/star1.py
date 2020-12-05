@@ -1,9 +1,9 @@
 import re
-from utils import get_input
+from utils import get_input_for_day
 
 DAY = 2
 
-input_data = get_input(DAY)
+input_data = get_input_for_day(DAY)
 valid_pw_count = 0
 for i in input_data:
     data_as_list = re.split('-|: | ', i)
