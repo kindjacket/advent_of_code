@@ -10,6 +10,8 @@ requests = "^2.25.0"
 python-dotenv = "^0.15.0"
 numpy = "^1.19.4"
 loguru = "^0.5.3"
+networkx = "^2.5"
+networkx-viewer = "^0.3.0"
 
 [tool.poetry.dev-dependencies]
 
